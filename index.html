@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análisis de Datos — Storytelling</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <div class="container" >
+    
+    <h1>Análisis del Gasto de los clientes en UK</h1>
+    
+    <p class="subtitle">Una exploración visual impulsada por datos.</p>
+    <p class="subname">Freddy Villca Villegas * 7 min read * May 2025</p>
+
+    <p>
+      Rysons International Group UK, un empresa de retail B2B con sede en el Reino Unido, ha pedido información sobre los volúmenes de gasto de los clientes con sede en Londres frente a los del resto del Reino Unido. El consejo ha proporcionado un extracto de datos de alto nivel que contiene las direcciones
+      de todos los clientes y su gasto total hasta la fecha. La empresa quiere saber:
+    <ul>
+      <li>Qué ciudades del Reino Unido están actualmente desatendidas?</li>
+      <li>Si sus clientes se encuentran principalmente en Londres.</li>
+    </ul>
+      Los datos proceden de Companies House, una agencia patrocinada por el departamento de Negocios y Comercio del gobierno británico. Los datos originales están disponibles en https://download.companieshouse.gov.uk/en_output.html.
+      Lista oficial de ciudades del reino unido: https://www.gov.uk/government/publications/list-of-cities/list-of-cities-html.
+      Aumento de datos mediante el codigo postal: https://www.doogal.co.uk/UKPostcodes y
+      tambien se obtuvo datos de los codigos postales por distrito: https://www.doogal.co.uk/PostcodeDistricts
+      <p>
+      Se han utilizado herramientas de visualización interactivas como Plotly y Altair.</p>
+    </p>
+    <h2> Flujo del proyecto</h2>
+    <p>Los pasos realizados en este proyecto son:</p>
+    <img src="output/flujo_proyecto.png" alt="g1" style="width: 100%; height: auto; display: block; margin: 20px 0;">
+    <p>Se utilizaron 3 fuentes de datos externas publicas, ademas se empleo para el analisis herramientas como
+      como pandas, regex, seaborn, ploty y altair para realizar las visualizaciones.
+    </p>
+    <h2> 📈 Exploración y Análisis</h2>
+    <p>
+      En esta seccion se presentan los hallazgos o insights obtenidos.
+    </p>
+    <img src="output/top20_customer_spending.png" alt="g2" style="width: 100%; height: auto; display: block; margin: 20px 0;">
+
+    <p>
+      En la siguiente tabla se muestra a las 20 ciudades que tuvieron mayor gasto.
+    </p>
+    <div id="tabla-contenedor"></div>
+
+    <p>
+      Tal como se puede observar en el anterior grafico, Londres es la ciudad con el gasto mas alto frente a las demas ciudades, con £ 102M.
+      Las demas ciudades de Uk poseen un gasto menor a £ 20M.
+    </p>
+
+    <img src="output/last_20_spend_by_city.png" alt="g3" style="width: 70%; height: auto; display: block; margin: 20px auto;">
+    
+    <p>
+      Las ultimas 20 ciudades presentan gastos menores a £ 2M. Esto puede deberse a que son ciudades pequeñas con pocos clientes o con poca actividad económica.
+    </p>
+    <div id="tabla-contenedor-2"></div>
+
+    <img src="output/spend_by_region.png" alt="g4" style="width: 100%; height: auto; display: block; margin: 20px 0;">
+    
+    <p> 
+      Se puede notar que la region de Uk que genera mas gasto o ingreso es Londres con £ 138.4M y la region con menor gasto es Irlanda del Norte.
+      Existen 3 regiones por debajo de £20M que son: Gales (£ 14M), la region Noreste de Inglaterra (£ 11M) y Irlanda del norte (£ 7.4M).
+      Con esto podemos decir que la base de clientes se encuentran en Londres.
+    </p>
+    
+    <!--
+    <iframe src="output/map_total_spend.html"
+              style="width: 100%; 
+              height: 900px; border: none;"
+              loading="lazy">
+    </iframe>
+    -->
+
+    <div id="grafico-container">
+      <div class="iframe-wrapper" style="height: 850px;">
+        <iframe src="output/map_total_spend.html"
+                style="transform: scale(0.91);
+                transform-origin: top left;
+                width: 770px;
+                height: 900px;
+                border: none;
+                ">
+        </iframe>
+      </div>
+    </div>
+
+    <p>
+      Los mayores ingresos provienen de las ciudades más pobladas debido a que estas cuentan con mas clientes en ellas, como se puede observar en el gráfico.
+      Existen una relacion ascendete entre la cantidad de clientes y la población de una ciudad. A medida que una ciudad tenga mayor poblacion tambien se puede obtener más clientes y por tanto más ingresos.
+      Hay ciudades que tienen más poblacion que otras pero que poseen casi la misma cantidad de clientes, por lo cual hay la oportunidad de seguir consiguiendo nuevos clientes en esas ciudades. 
+    </p>
+
+    <div id="grafico-container">
+      <div class="iframe-wrapper" style="height: 650px;">
+        <iframe src="output/Customer_vs_population.html"
+                  style="transform: scale(0.75);
+                  transform-origin: top left;
+                  width: 1000px;
+                  height: 720px;
+                  border: none;
+                  ">
+          </iframe>
+        </div>
+    </div>
+
+    <div class="iframe-wrapper" style="height: 450px;">
+        <iframe src="output/rel_spending_n_customers.html"
+                  style="transform: scale(0.85);
+                  transform-origin: top left;
+                  width: 900px;
+                  height: 500px;
+                  border: none;
+                  ">
+        </iframe>
+    </div>
+
+    <p>
+      Se tienen una relacion lineal entre el gasto y la cantidad de clientes. Por cada cliente que se obtiene, se llega a generar un ingreso aproximado de £4963.25.
+    </p>
+    <p>
+      Regresion:  Total spend = 4963.25 * N custumers - 9968.94 | con 
+      R²: 1.000, P-valor: 3.356e-269, Error estándar: 2.01
+    </p>
+
+    <div class="iframe-wrapper" style="height: 500px;">
+        <iframe src="output/average_spending_per_customer.html"
+                  style="transform: scale(0.85);
+                  transform-origin: top left;
+                  width: 900px;
+                  height: 500px;
+                  border: none;
+                  ">
+        </iframe>
+    </div>
+
+    <div id="tabla-contenedor-3"></div>
+    <p>
+      Los clientes con mayor promedio de gasto son de la ciudad de Kirkwall en Escocia.
+    </p>
+
+    <div id="tabla-contenedor-4"></div>
+    <p>
+      Existe una variación del gasto por cliente atraves de UK. La mediana del gasto se encuentra en £ 4952.74, mientras que el 50% central del gasto esta comprendido entre £ 4908.83 y £ 4989.79.
+      Las ciudades como KIRKWALL, OXFORD y DUMFRIES presentan un gasto por persona que se encuentra fuera del rango típico, al superar los límites definidos por el boxplot. Estas ciudades tienen un gasto por persona significativamente más alto que el resto.
+    </p>
+    <p>
+      Por otro lado, se tienen ciudades con un gasto promedio menor al limite inferior de la distribución obtenida, estos son: LERWICK, LUTON, OUTER HEBRIDES y LLANDRINDOD WELLS. Estan se encuentran fuera de la region de Inglaterra.
+    </p>
+
+    <div class="iframe-wrapper" style="height: 830px;">
+        <iframe src="output/rate_spending_customer_by_uk_region.html"
+                  style="transform: scale(0.85);
+                  transform-origin: top left;
+                  width: 830px;
+                  height: 950px;
+                  border: none;
+                  ">
+        </iframe>
+    </div>
+    <p>
+      Se puede notar que la region de Londres es la que presenta menor variabilidad sobre los gastos por cliente. En cambio Wales o Gales es la region con mayor variabilidad sobre los gastos popr cliente. Esta region tiene a la ciudad de Kirkwall en donde hay clientes que gastan mas del promedio nacional.
+    </p>
+    <div class="iframe-wrapper" style="height: 540px;">
+        <iframe src="output/spend_per_capita_vs_n_customers.html"
+                  style="transform: scale(0.85);
+                  transform-origin: top left;
+                  width: 830px;
+                  height: 600px;
+                  border: none;
+                  ">
+        </iframe>
+    </div>
+    <p>
+      Las ciudades más alejadas del promedio de gasto por cliente son: Kirkwall y LLandrindod Wells.
+      Kirkwall la ciudad con mejor rendimiento, tambien es la ciudad con la menor cantidad de clientes (18).
+      POdemos tomar como ciudades desatentidas aquellas que se encuentran por debajo del gasto del promedio nacional de los clientes.
+    </p>
+  
+  </div>
+  
+  <script>
+    fetch("output/top_20_total_spend_by_cyty.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("tabla-contenedor").innerHTML = html;
+      });
+
+    fetch("output/table_spend_by_ukregion.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("tabla-contenedor-2").innerHTML = html;
+      });
+
+    fetch("output/table_outliers_sup.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("tabla-contenedor-3").innerHTML = html;
+      });
+
+    fetch("output/table_outliers_low.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("tabla-contenedor-4").innerHTML = html;
+      });
+  </script>
+
+</body>
+</html>
