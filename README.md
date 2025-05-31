@@ -1,4 +1,4 @@
-#📈 Proyecto - Análisis del gasto de los clientes en UK 
+# Proyecto - Análisis del gasto de los clientes en UK 📈 
 
 Rysons International Group UK, un empresa de retail B2B con sede en el Reino Unido, ha pedido información sobre los volúmenes de gasto de los clientes con sede en Londres frente a los del resto del Reino Unido. Se ha proporcionado un extracto de datos de alto nivel que contiene las direcciones en donde se encuentran todos los clientes y su gasto total hasta la fecha. 
 
@@ -6,7 +6,7 @@ Este proyecto consiste en responder algunas preguntas de interes de la compañia
 
 Se pueden observar los hallazgos y insights obtenidos en la pagina [Análisis del gasto de los clientes en UK.](https://freddxvill.github.io/Customer-Retail-Analysis/).
 
-[![Captura-de-pantalla-2025-05-30-223104.png](https://i.postimg.cc/y6Qk0RL5/Captura-de-pantalla-2025-05-30-223104.png)](https://postimg.cc/rz4VkDXC)(https://freddxvill.github.io/Customer-Retail-Analysis/)
+[![Captura-de-pantalla-2025-05-30-223104.png](https://i.postimg.cc/y6Qk0RL5/Captura-de-pantalla-2025-05-30-223104.png)](https://postimg.cc/rz4VkDXC)
 
 Notebooks utilizados (Español e Ingles):
 
