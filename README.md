@@ -23,5 +23,5 @@ El flujo de pasos utilizado en el proyecto es:
 Los datos estan disponibles en: 
 * https://download.companieshouse.gov.uk/en_output.html.
 * Lista oficial de ciudades del reino unido: https://www.gov.uk/government/publications/list-of-cities/list-of-cities-html.
-* Datos sobre los codigos postales: https://www.doogal.co.uk/UKPostcodes y
+* Datos sobre los codigos postales: https://www.doogal.co.uk/UKPostcodes
 * Codigos postales por distrito: https://www.doogal.co.uk/PostcodeDistricts
